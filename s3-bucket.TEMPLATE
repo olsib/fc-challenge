@@ -1,0 +1,67 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "S3 Bucket for elb logs",
+	"Resources": {
+		"S3Bucket": {
+			"Type": "AWS::S3::Bucket",
+			"Properties": {
+				"AccessControl": "Private",
+				"BucketName": "fc-elblogs",
+				"Tags": [{
+						"Key": "User",
+						"Value": "olsi.birbo"
+					},
+					{
+						"Key": "Company",
+						"Value": "FC"
+					},
+					{
+						"Key": "CostCenter",
+						"Value": "xxxx"
+					},
+					{
+						"Key": "Service",
+						"Value": "DEV"
+					},
+					{
+						"Key": "Role",
+						"Value": "NGINX"
+					},
+					{
+						"Key": "Environment",
+						"Value": "DEV"
+					}
+				]
+			},
+			"DeletionPolicy": "Retain"
+		},
+		"BucketPolicy": {
+			"Type": "AWS::S3::BucketPolicy",
+			"Properties": {
+				"PolicyDocument": {
+					"Id": "BucketPolicyfc-elblogs",
+					"Version": "2012-10-17",
+					"Statement": [    {
+						"Sid": "Stmt1442576554133",
+						"Effect": "Allow",
+						"Action": "s3:*",			
+						"Resource": [
+							"arn:aws:s3:::fc-elblogs",
+							"arn:aws:s3:::fc-elblogs/*"
+								],
+						"Condition": {
+							"StringEquals": {
+								"aws:sourceVpc": "vpc-d3347db6"
+									}
+								},
+						"Principal": "*"
+							}
+					]
+				},
+			"Bucket": "fc-elblogs"
+			}
+		}
+	},
+	"Outputs": {		
+	}
+}

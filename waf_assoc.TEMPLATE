@@ -1,0 +1,27 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "Associating Credit UAT Application Load Balancer with WAF ACL",
+	"Parameters" : {
+	  "CreditUATALBarn": {
+      "Description" : "The arn of Credit UAT Application Load Balancer",
+      "Type" : "String",
+	  "MaxLength" : "150",
+	  "Default" : "arn:aws:elasticloadbalancing:eu-west-1:249437798100:loadbalancer/app/Markit-UATCredit-ALB/bf708d1e5b573452"
+    },
+	  "CreditUATACLID": {
+      "Description" : "The ID of WAF to apply to the load balancer",
+      "Type" : "String",
+	  "MaxLength" : "50",
+	  "Default" : "3a7f4215-d016-4866-9872-b60c69d32f10"
+				}
+	},
+	"Resources": {
+		"WebACLAssociation": {
+			"Type": "AWS::WAFRegional::WebACLAssociation",
+			"Properties": {
+				    "ResourceArn": { "Ref": "CreditUATALBarn" },
+					"WebACLId": { "Ref": "CreditUATACLID" }
+						}
+					}
+	}
+}
