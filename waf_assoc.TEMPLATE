@@ -1,26 +1,26 @@
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "Associating Credit UAT Application Load Balancer with WAF ACL",
+	"Description": "Associating NGINX Application Load Balancer with WAF ACL",
 	"Parameters" : {
-	  "CreditUATALBarn": {
+	  "NginxALBarn": {
       "Description" : "The arn of Credit UAT Application Load Balancer",
       "Type" : "String",
 	  "MaxLength" : "150",
-	  "Default" : "arn:aws:elasticloadbalancing:eu-west-1:249437798100:loadbalancer/app/Markit-UATCredit-ALB/bf708d1e5b573452"
+	  "Default" : "arn:aws:elasticloadbalancing:eu-west-1:581750732596:loadbalancer/app/asdfasddf/ed6d8c835b693fb9"
     },
-	  "CreditUATACLID": {
+	  "NGINXACLID": {
       "Description" : "The ID of WAF to apply to the load balancer",
       "Type" : "String",
 	  "MaxLength" : "50",
-	  "Default" : "3a7f4215-d016-4866-9872-b60c69d32f10"
+	  "Default" : "8c649dc6-1e37-4e48-beb7-ac08892d4b13"
 				}
 	},
 	"Resources": {
 		"WebACLAssociation": {
 			"Type": "AWS::WAFRegional::WebACLAssociation",
 			"Properties": {
-				    "ResourceArn": { "Ref": "CreditUATALBarn" },
-					"WebACLId": { "Ref": "CreditUATACLID" }
+				    "ResourceArn": { "Ref": "NginxALBarn" },
+					"WebACLId": { "Ref": "NGINXACLID" }
 						}
 					}
 	}
