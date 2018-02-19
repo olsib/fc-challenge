@@ -3,10 +3,10 @@
 	"Description": "Associating NGINX Application Load Balancer with WAF ACL",
 	"Parameters" : {
 	  "NginxALBarn": {
-      "Description" : "The arn of Credit UAT Application Load Balancer",
+      "Description" : "The arn of NGINX Load Balancer",
       "Type" : "String",
 	  "MaxLength" : "150",
-	  "Default" : "arn:aws:elasticloadbalancing:eu-west-1:581750732596:loadbalancer/app/asdfasddf/ed6d8c835b693fb9"
+	  "Default" : "arn:aws:elasticloadbalancing:eu-west-1:581750732596:loadbalancer/app/Proxy/f5f5c65204830a54"
     },
 	  "NGINXACLID": {
       "Description" : "The ID of WAF to apply to the load balancer",
