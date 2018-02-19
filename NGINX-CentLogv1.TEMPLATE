@@ -185,14 +185,14 @@
 		},
 		"instanceSizing": {
       "elasticsearch": {
-        "Small": "t2.small.elasticsearch",
+        "Small": "t2.micro.elasticsearch",
         "Medium": "r3.xlarge.elasticsearch",
         "Large": "r3.8xlarge.elasticsearch"
       }
     },
 		"MasterSizing": {
 			"elasticsearch": {
-				"Small": "t2.small.elasticsearch",
+				"Small": "t2.micro.elasticsearch",
 				"Medium": "m3.medium.elasticsearch",
 				"Large": "m3.medium.elasticsearch"
 			}
